@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flux-sync-check
+  namespace: flux-system
+spec:
+  template:
+    spec:
+      containers:
+      - name: check-flux-sync
+        image: curlimages/curl:latest
+        command:
+          - "sh"
+          - "-c"
+          - >
+            echo "Checking Flux sync status...";
+            if curl -s http://flux-system/healthz | grep -q 'ok'; then
+              echo "Flux is healthy";
+              exit 0;
+            else
+              echo "Flux sync issue detected";
+              exit 1;
+            fi
+      restartPolicy: OnFailure
+  backoffLimit: 3
