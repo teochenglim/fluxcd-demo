@@ -5,6 +5,6 @@ resources:
   - namespaces/
   - workloads/
   - services/
-  - configmaps/
-  - secrets/
-  - other-resources/
+  # - configmaps/
+  # - secrets/
+  # - other-resources/
