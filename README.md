@@ -13,6 +13,7 @@ flux bootstrap git \
   --path=clusters/local-cluster
 
 
-mkdir -p fluxcd-demo/clusters/my-cluster/{flux-system,namespaces,workloads,services,configmaps,secrets,other-resources}
+mkdir -p clusters/local-cluster/{flux-system,namespaces,local,other-cluster}
+mkdir -p clusters/local-cluster/local/{workloads,services,configmaps,secrets,other-resources}
 
 ```
